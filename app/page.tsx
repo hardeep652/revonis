@@ -25,7 +25,6 @@ import React, {
   useEffect,
   useRef,
   useState,
-  useCallback,
   createContext,
   useContext,
 } from "react";
@@ -105,11 +104,11 @@ const COLORS = {
 /* -------------------------------------------------------------------------- */
 
 const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "About", href: "#why" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#why" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const STATS = [
@@ -355,7 +354,7 @@ const FAQS = [
 /*  Scroll context (drives navbar shrink + progress bar)                     */
 /* -------------------------------------------------------------------------- */
 
-const ScrollCtx = createContext<{ scrolled: boolean }>({ scrolled: false });
+export const ScrollCtx = createContext<{ scrolled: boolean }>({ scrolled: false });
 
 /* -------------------------------------------------------------------------- */
 /*  Utility: count-up hook triggered by viewport visibility                  */
@@ -398,114 +397,40 @@ function useCountUp(target: number, durationMs = 1600) {
 /*  Background: engineering grid + noise + soft glow + slow particles        */
 /* -------------------------------------------------------------------------- */
 
-function AmbientBackground() {
-  const particles = React.useMemo(
-    () =>
-      Array.from({ length: 24 }).map((_, i) => ({
-        id: i,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        size: 1 + Math.random() * 1.6,
-        duration: 30 + Math.random() * 40,
-        delay: Math.random() * -60,
-      })),
-    []
-  );
+export function AmbientBackground() {
+  const spotRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      if (spotRef.current) {
+        spotRef.current.style.background = `radial-gradient(520px circle at ${x}% ${y}%, rgba(30,58,138,0.14), rgba(212,175,55,0.06) 35%, transparent 60%)`;
+      }
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden" style={{ background: COLORS.bgPrimary }}>
-      {/* radial glow */}
-      <div
-        className="absolute left-1/2 top-[-10%] h-[70vh] w-[70vw] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(48,77,138,0.35) 0%, rgba(48,77,138,0) 70%)",
-        }}
-      />
-      <div
-        className="absolute bottom-[-15%] right-[-10%] h-[55vh] w-[55vw] rounded-full opacity-30 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0) 70%)",
-        }}
-      />
-      {/* noise */}
-      <svg className="absolute inset-0 h-full w-full opacity-[0.02]">
+      {/* living morphing gradient field */}
+      <div className="ambient-mesh absolute inset-0" />
+
+      {/* slow diagonal sheen sweep */}
+      <div className="ambient-sheen" />
+
+      {/* interactive cursor spotlight */}
+      <div ref={spotRef} className="absolute inset-0" />
+
+      {/* grain */}
+      <svg className="absolute inset-0 h-full w-full opacity-[0.025]">
         <filter id="noiseFilter">
           <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" />
         </filter>
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
-      {/* slow particles */}
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full"
-          style={{
-            left: `${p.left}%`,
-            top: `${p.top}%`,
-            width: p.size,
-            height: p.size,
-            background: "rgba(48,77,138,0.35)",
-          }}
-          animate={{ y: [0, -30, 0], opacity: [0.15, 0.4, 0.15] }}
-          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-        />
-      ))}
     </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Loading screen                                                            */
-/* -------------------------------------------------------------------------- */
-
-function LoadingScreen({ onDone }: { onDone: () => void }) {
-  useEffect(() => {
-    const t = setTimeout(onDone, 2200);
-    return () => clearTimeout(t);
-  }, [onDone]);
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center"
-      style={{ background: COLORS.bgPrimary }}
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.7, ease: easeOut } }}
-    >
-      <motion.div
-        className="flex flex-col items-center gap-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.div
-          className="flex items-center gap-3"
-          initial={{ letterSpacing: "0.05em", opacity: 0 }}
-          animate={{ letterSpacing: "0.3em", opacity: 1 }}
-          transition={{ duration: 1.4, ease: easeOut }}
-        >
-          <span
-            className="text-2xl font-semibold tracking-[0.3em]"
-            style={{ color: COLORS.textPrimary }}
-          >
-            REVONIS
-          </span>
-        </motion.div>
-        <motion.div
-          className="h-px w-40 overflow-hidden rounded-full"
-          style={{ background: "rgba(15,23,42,0.08)" }}
-        >
-          <motion.div
-            className="h-full"
-            style={{ background: COLORS.accentGold }}
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 1.8, ease: easeOut }}
-          />
-        </motion.div>
-      </motion.div>
-    </motion.div>
   );
 }
 
@@ -513,7 +438,7 @@ function LoadingScreen({ onDone }: { onDone: () => void }) {
 /*  Navbar                                                                    */
 /* -------------------------------------------------------------------------- */
 
-function Navbar() {
+export function Navbar() {
   const { scrolled } = useContext(ScrollCtx);
 
   return (
@@ -521,7 +446,7 @@ function Navbar() {
       className="fixed left-1/2 top-4 z-50 w-[94%] max-w-6xl -translate-x-1/2"
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 2.3, ease: easeOut }}
+      transition={{ duration: 0.8, delay: 0.1, ease: easeOut }}
     >
       <motion.div
         className="flex items-center justify-between rounded-full border px-6 backdrop-blur-xl"
@@ -554,7 +479,7 @@ function Navbar() {
         </nav>
 
         <a
-          href="#contact"
+          href="/#contact"
           className="rounded-full px-5 py-2.5 text-[13px] font-semibold transition-transform hover:scale-[1.03]"
           style={{ background: COLORS.accentGold, color: "#111827" }}
         >
@@ -575,7 +500,7 @@ function EngineeringSculpture() {
       className="relative mx-auto aspect-square w-full max-w-lg"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.2, delay: 2.8, ease: easeOut }}
+      transition={{ duration: 1.2, delay: 0.2, ease: easeOut }}
     >
       <motion.svg
         viewBox="0 0 400 400"
@@ -649,7 +574,7 @@ function EngineeringSculpture() {
         className="absolute inset-0 flex items-center justify-center"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, delay: 3.4, ease: easeOut }}
+        transition={{ duration: 0.9, delay: 0.7, ease: easeOut }}
       >
         <svg viewBox="0 0 120 120" className="h-[22%] w-[22%]" style={{ filter: "drop-shadow(0 0 18px rgba(212,175,55,0.45))" }}>
           <defs>
@@ -675,7 +600,7 @@ function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 2.4 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
             className="mb-6 text-[13px] font-semibold tracking-[0.25em]"
             style={{ color: COLORS.accentGold }}
           >
@@ -685,7 +610,7 @@ function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 2.55, ease: easeOut }}
+            transition={{ duration: 0.9, delay: 0.3, ease: easeOut }}
             className="text-[13vw] font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
             style={{ color: COLORS.textPrimary }}
           >
@@ -697,7 +622,7 @@ function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.85 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
             className="mt-8 max-w-lg text-lg leading-relaxed"
             style={{ color: COLORS.textSecondary }}
           >
@@ -707,11 +632,11 @@ function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.05 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <a
-              href="#contact"
+              href="/#contact"
               className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-transform hover:scale-[1.03]"
               style={{ background: COLORS.accentGold, color: "#0A0E1F" }}
             >
@@ -719,7 +644,7 @@ function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#work"
+              href="/work"
               className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-black/5"
               style={{ borderColor: COLORS.border, color: COLORS.textPrimary }}
             >
@@ -735,7 +660,7 @@ function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.4, duration: 0.6 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
@@ -926,7 +851,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-function FeaturedProjects() {
+export function FeaturedProjects() {
   return (
     <section id="work" className="relative px-6 py-28">
       <div className="mx-auto max-w-7xl">
@@ -1414,7 +1339,7 @@ function InstagramIcon({ className }: { className?: string }) {
 /*  Footer                                                                   */
 /* -------------------------------------------------------------------------- */
 
-function Footer() {
+export function Footer() {
   return (
     <footer className="border-t px-6 py-12" style={{ borderColor: COLORS.border }}>
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 sm:flex-row">
@@ -1445,7 +1370,6 @@ function Footer() {
 /* -------------------------------------------------------------------------- */
 
 export default function RevonisPage() {
-  const [loading, setLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
 
@@ -1453,19 +1377,15 @@ export default function RevonisPage() {
     setScrolled(latest > 40);
   });
 
-  const handleLoaded = useCallback(() => setLoading(false), []);
-
   return (
     <ScrollCtx.Provider value={{ scrolled }}>
       <div className="relative min-h-screen font-sans" style={{ color: COLORS.textPrimary }}>
         <AmbientBackground />
-        <AnimatePresence>{loading && <LoadingScreen onDone={handleLoaded} />}</AnimatePresence>
 
         <Navbar />
         <main>
           <Hero />
           <StatsBar />
-          <FeaturedProjects />
           <Services />
           <Process />
           <WhyRevonis />
