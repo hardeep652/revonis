@@ -549,10 +549,10 @@ function EngineeringSculpture() {
           const angle = (i * 10 * Math.PI) / 180;
           const r1 = 150;
           const r2 = i % 3 === 0 ? 138 : 144;
-          const x1 = 200 + r1 * Math.cos(angle);
-          const y1 = 200 + r1 * Math.sin(angle);
-          const x2 = 200 + r2 * Math.cos(angle);
-          const y2 = 200 + r2 * Math.sin(angle);
+          const x1 = Math.round((200 + r1 * Math.cos(angle)) * 1e3) / 1e3;
+          const y1 = Math.round((200 + r1 * Math.sin(angle)) * 1e3) / 1e3;
+          const x2 = Math.round((200 + r2 * Math.cos(angle)) * 1e3) / 1e3;
+          const y2 = Math.round((200 + r2 * Math.sin(angle)) * 1e3) / 1e3;
           return (
             <line
               key={i}
@@ -878,11 +878,23 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = service.icon;
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      whileInView="visible"
+      whileHover="hover"
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: index * 0.06, ease: easeOut }}
-      whileHover={{ y: -4, borderColor: "rgba(212,175,55,0.4)" }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, delay: index * 0.06, ease: easeOut },
+        },
+        hover: {
+          y: -4,
+          borderColor: "rgba(212,175,55,0.4)",
+          transition: { duration: 0.2, ease: "easeOut" },
+        },
+      }}
       className="rounded-2xl border p-7"
       style={{ borderColor: COLORS.border, background: COLORS.card }}
     >
