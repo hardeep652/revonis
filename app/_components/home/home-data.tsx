@@ -175,8 +175,7 @@ export const PROJECTS: Project[] = [
 export type Service = {
   icon: ElementType;
   title: string;
-  problem: string;
-  solution: string;
+  description: string;
   value: string;
 };
 
@@ -184,47 +183,46 @@ export const SERVICES: Service[] = [
   {
     icon: Rocket,
     title: "Get More Admissions",
-    problem: "Good leads come in but many never complete the application.",
-    solution: "We build straightforward enrollment sites and systems that make it easy for families to apply and for your team to follow up.",
+    description:
+      "Good leads come in, but too many never finish the application. We build straightforward enrollment sites and systems that make it easy for families to apply and easy for your team to follow up.",
     value: "Higher conversion from interest to enrollment with less manual work.",
   },
   {
     icon: Layers,
     title: "Professional Business Websites",
-    problem: "Your current site looks generic and doesn't reflect the quality of your work.",
-    solution: "We design and build websites that look professional, load fast, and clearly communicate what you do.",
+    description:
+      "A generic site undersells the quality of your work. We design and build websites that look professional, load fast, and clearly communicate what you do.",
     value: "A website visitors trust within seconds.",
   },
   {
     icon: Workflow,
     title: "Automate Repetitive Tasks",
-    problem: "Your team loses hours every week on manual processes that could be handled automatically.",
-    solution: "We create simple automations that remove the boring, error-prone steps from daily work.",
+    description:
+      "Manual processes quietly eat your team's week. We create simple automations that remove the boring, error-prone steps from daily work.",
     value: "More time for the work that actually moves your business forward.",
   },
   {
     icon: Code2,
     title: "Custom Business Tools",
-    problem: "Off-the-shelf software is close but never quite fits how you actually operate.",
-    solution: "We build tools designed around your real workflows and team.",
+    description:
+      "Off-the-shelf software is close, but never quite fits how you actually operate. We build tools designed around your real workflows and team.",
     value: "Software that supports your business instead of forcing you to adapt to it.",
   },
   {
     icon: Cpu,
     title: "Practical AI Features",
-    problem: "AI sounds promising but most attempts stay experimental and never deliver real results.",
-    solution: "We add focused AI capabilities that solve specific problems inside your existing systems.",
+    description:
+      "AI sounds promising, but most attempts stay experimental and never deliver real results. We add focused AI capabilities that solve specific problems inside your existing systems.",
     value: "Automation that works reliably day after day.",
   },
   {
     icon: Boxes,
     title: "Systems That Grow With You",
-    problem: "As your business grows, older systems start slowing you down and creating new problems.",
-    solution: "We build or improve platforms that handle more volume without breaking.",
+    description:
+      "As your business grows, older systems start slowing you down and creating new problems. We build or improve platforms that handle more volume without breaking.",
     value: "Reliable infrastructure you can depend on as you expand.",
   },
 ];
-
 export const PROCESS_STEPS = [
   { icon: Search, title: "Discovery", desc: "We talk through your goals, current challenges, and what success looks like for you." },
   { icon: Radar, title: "Research", desc: "We study how your business works today and what needs to change." },
@@ -236,16 +234,12 @@ export const PROCESS_STEPS = [
 ];
 
 export const WHY_REVONIS = [
-  { icon: Zap, title: "Fast Responses", desc: "You won't wait days for answers. We keep communication clear and timely." },
   { icon: FileCode2, title: "Clear Pricing", desc: "You get a detailed scope and price upfront. No hidden costs later." },
   { icon: Layers, title: "Built to Last", desc: "We create systems that continue working well as your business grows." },
-  { icon: Gauge, title: "Speed Matters", desc: "Every part of the experience is built to feel quick and responsive." },
   { icon: ShieldCheck, title: "Security First", desc: "We build in proper controls and protection from the beginning." },
-  { icon: ClipboardCheck, title: "Clear Documentation", desc: "You receive practical guides your own team can actually follow." },
   { icon: GitBranch, title: "You Own Everything", desc: "The code and system belong to you completely." },
   { icon: Timer, title: "Ongoing Support", desc: "We're still here when you need help months after launch." },
   { icon: MessageSquare, title: "Regular Updates", desc: "You always know what's done and what comes next." },
-  { icon: Cpu, title: "Full Deployment", desc: "We handle the launch to production, not just hand over files." },
 ];
 
 export const CLIENT_JOURNEY = [

@@ -28,11 +28,11 @@ function TicketTape() {
 
   return (
     <div
-      className="relative h-[420px] w-full max-w-xs overflow-hidden rounded-2xl"
+      className="relative h-[380px] w-full max-w-xs overflow-hidden rounded-2xl"
       style={{
         background: "#0F1B3D",
-        maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+        maskImage: "linear-gradient(to bottom, transparent, black 4%, black 96%, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 4%, black 96%, transparent)",
       }}
     >
       <style>{`
@@ -45,7 +45,7 @@ function TicketTape() {
         }
       `}</style>
       <div
-        className="ticket-track flex flex-col gap-3 px-4 py-6"
+        className="ticket-track flex flex-col gap-3 px-4 py-4"
         style={{
           animation: reduceMotion ? "none" : "ticket-scroll 16s linear infinite",
         }}
@@ -71,17 +71,16 @@ function TicketTape() {
     </div>
   );
 }
-
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center px-6 pt-32">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+    <section className="relative flex min-h-screen items-center px-6 pb-16 pt-28">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 font-mono text-[12px] tracking-[0.15em]"
+            className="mb-5 font-mono text-[12px] tracking-[0.15em]"
             style={{ color: COLORS.textSecondary }}
           >
             REVONIS — SOFTWARE STUDIO
@@ -91,19 +90,19 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
-            className="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl"
+            className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
             style={{ color: COLORS.textPrimary }}
           >
-            Got something that's
+            Got something that's been
             <br />
-            been waiting <span style={{ color: COLORS.accentGold }}>too long?</span>
+            waiting <span style={{ color: COLORS.accentGold }}>too long?</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 max-w-md text-lg leading-relaxed"
+            className="mt-5 max-w-md text-base leading-relaxed sm:text-lg"
             style={{ color: COLORS.textSecondary }}
           >
             A clunky spreadsheet. A manual step that eats an hour every
@@ -115,7 +114,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             <Link
               href="/#contact"
@@ -138,7 +137,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="mt-8 font-mono text-[11px] tracking-wide"
+            className="mt-6 font-mono text-[11px] tracking-wide"
             style={{ color: COLORS.textSecondary }}
           >
             OPEN FOR NEW PROJECTS

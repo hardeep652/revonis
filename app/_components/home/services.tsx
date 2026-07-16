@@ -32,18 +32,13 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       >
         <Icon className="h-5 w-5" style={{ color: COLORS.accentGold }} />
       </div>
-      <h3 className="mb-3 text-lg font-semibold" style={{ color: COLORS.textPrimary }}>
+      <h3 className="mb-2.5 text-lg font-semibold" style={{ color: COLORS.textPrimary }}>
         {service.title}
       </h3>
-      <p className="mb-2 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
-        <span className="font-medium" style={{ color: COLORS.textPrimary }}>The problem — </span>
-        {service.problem}
+      <p className="mb-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
+        {service.description}
       </p>
-      <p className="mb-2 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
-        <span className="font-medium" style={{ color: COLORS.textPrimary }}>Our approach — </span>
-        {service.solution}
-      </p>
-      <p className="text-sm leading-relaxed" style={{ color: COLORS.accentGold }}>
+      <p className="text-sm font-medium leading-relaxed" style={{ color: COLORS.accentGold }}>
         {service.value}
       </p>
     </motion.div>
