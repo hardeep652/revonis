@@ -118,7 +118,7 @@ export default function ContactPage() {
                 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl"
                 style={{ color: COLORS.textPrimary }}
               >
-                Let's build something that <span style={{ color: COLORS.accentGold }}>lasts.</span>
+                Let&apos;s build something that <span style={{ color: COLORS.accentGold }}>lasts.</span>
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
                 Tell us about your project or book a free discovery call. We reply within two hours on business days.
@@ -224,7 +224,7 @@ export default function ContactPage() {
                     Thank you, {form.name || "friend"}!
                   </h2>
                   <p className="mt-3 max-w-sm text-sm" style={{ color: COLORS.textSecondary }}>
-                    Your message is on its way. We'll get back to you at {form.email || "your email"} shortly.
+                    Your message is on its way. We&apos;ll get back to you at {form.email || "your email"} shortly.
                   </p>
                   <button
                     onClick={() => {
