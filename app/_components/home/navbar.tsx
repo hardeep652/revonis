@@ -27,7 +27,7 @@ export function Navbar() {
           <img
             src="/Revonis_Logo%20(Edited).png"
             alt="Revonis"
-            className="h-9 w-auto rounded-lg object-contain"
+            className="h-6 w-auto rounded-lg object-contain"
             style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.25))" }}
           />
         </span>
