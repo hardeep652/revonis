@@ -6,7 +6,7 @@ function ProjectMock({ project }: { project: Project }) {
   const accent = project.accent === "gold" ? COLORS.accentGold : COLORS.accentBlue;
   return (
     <div
-      className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border"
+      className="relative w-full overflow-hidden rounded-2xl border"
       style={{ borderColor: COLORS.border, background: COLORS.bgSecondary }}
     >
       <div className="flex items-center gap-1.5 border-b px-4 py-3" style={{ borderColor: COLORS.border }}>
@@ -14,21 +14,31 @@ function ProjectMock({ project }: { project: Project }) {
         <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#D4AF37" }} />
         <span className="h-2.5 w-2.5 rounded-full" style={{ background: "#16A34A" }} />
       </div>
-      <div className="grid h-full grid-cols-3 gap-3 p-5">
-        <div className="col-span-1 space-y-3">
-          <div className="h-3 w-3/4 rounded-full" style={{ background: "rgba(15,23,42,0.1)" }} />
-          <div className="h-16 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
-          <div className="h-16 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+      {project.image ? (
+        <div className="w-full">
+          <img
+            src={project.image}
+            alt={`${project.name} preview`}
+            className="w-full h-auto object-contain"
+          />
         </div>
-        <div className="col-span-2 space-y-3">
-          <div className="h-24 rounded-lg" style={{ background: `${accent}22`, border: `1px solid ${accent}55` }} />
-          <div className="grid grid-cols-3 gap-3">
-            <div className="h-14 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
-            <div className="h-14 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
-            <div className="h-14 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+      ) : (
+        <div className="grid h-full grid-cols-3 gap-3 p-5">
+          <div className="col-span-1 space-y-3">
+            <div className="h-3 w-3/4 rounded-full" style={{ background: "rgba(15,23,42,0.1)" }} />
+            <div className="h-16 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+            <div className="h-16 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+          </div>
+          <div className="col-span-2 space-y-3">
+            <div className="h-24 rounded-lg" style={{ background: `${accent}22`, border: `1px solid ${accent}55` }} />
+            <div className="grid grid-cols-3 gap-3">
+              <div className="h-14 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+              <div className="h-14 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+              <div className="h-14 rounded-lg" style={{ background: "rgba(15,23,42,0.05)" }} />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -50,12 +60,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <ProjectMock project={project} />
         </div>
         <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-          <span
-            className="mb-4 inline-block rounded-full border px-3 py-1 text-xs font-semibold tracking-wide"
-            style={{ borderColor: `${accent}55`, color: accent }}
-          >
-            {project.domain}
-          </span>
+          {project.domain && (
+            <span
+              className="mb-4 inline-block rounded-full border px-3 py-1 text-xs font-semibold tracking-wide"
+              style={{ borderColor: `${accent}55`, color: accent }}
+            >
+              {project.domain}
+            </span>
+          )}
           <h3 className="mb-5 text-3xl font-semibold tracking-tight" style={{ color: COLORS.textPrimary }}>
             {project.name}
           </h3>

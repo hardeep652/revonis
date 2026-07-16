@@ -153,44 +153,22 @@ export type Project = {
   impact: string;
   tech: string[];
   accent: "gold" | "blue";
+  image?: string;
 };
 
 export const PROJECTS: Project[] = [
   {
     name: "Nirmaan Academy",
-    domain: "Education",
+    domain: "",
     problem:
-      "Admissions were scattered across spreadsheets and phone calls. Leads slipped away and follow-ups took too long during busy enrollment periods.",
+      "Nirmaan Academy, an engineering coaching institute in Ahmedabad, needed a modern digital storefront for its 10-year milestone — to attract DDCET, diploma, and degree students, showcase results, share study resources, and turn admission inquiries into real leads.",
     solution:
-      "We built one clear platform that handles applications, tracks every lead, and gives families an easy way to apply online.",
+      "We built a clean, modern website with an eye-catching animated homepage, a study-resource section with video lessons and downloadable materials, a simple admission inquiry form that connects students directly on WhatsApp, a results page showing past rankers, and an easy admin panel for the team to manage everything.",
     impact:
-      "More inquiries turn into enrollments, staff spend far less time chasing paperwork, and the team finally has one place for all applicant information.",
-    tech: ["Next.js", "PostgreSQL", "Spring Boot", "AWS"],
+      "A complete digital presence that attracts prospective students, showcases results and testimonials, offers free resources, and converts inquiries into WhatsApp leads.",
+    tech: [],
     accent: "gold",
-  },
-  {
-    name: "CrochetStory",
-    domain: "E-Commerce",
-    problem:
-      "The handmade business needed an online store that felt personal and high-quality — not another generic template that was hard to manage.",
-    solution:
-      "We created a clean, fast storefront tied directly to their products, with simple checkout and inventory tools the owner could handle herself.",
-    impact:
-      "Pages load quickly, more visitors complete purchases, and the founder spends her time growing the business instead of fighting with the website.",
-    tech: ["Next.js", "TypeScript", "Redis", "Docker"],
-    accent: "blue",
-  },
-  {
-    name: "Payment Reconciliation Platform",
-    domain: "Fintech Infrastructure",
-    problem:
-      "The finance team spent days each month manually matching payments from different providers. Mistakes were common and discovered late.",
-    solution:
-      "We built a system that automatically pulls in transactions from every source, spots differences immediately, and creates clear reports.",
-    impact:
-      "Reconciliation now takes minutes instead of days. The team has confidence in the numbers and spends time on higher-value work.",
-    tech: ["Java", "Kafka", "PostgreSQL", "Kubernetes"],
-    accent: "gold",
+    image: "/RN.png",
   },
 ];
 
