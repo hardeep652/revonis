@@ -18,10 +18,22 @@ export function Footer() {
           <a href="mailto:hello@revonis.com" aria-label="Email" style={{ color: COLORS.textSecondary }}>
             <Mail className="h-4 w-4" />
           </a>
-          <a href="#" aria-label="LinkedIn" style={{ color: COLORS.textSecondary }}>
+          <a
+            href="https://www.linkedin.com/company/revonis"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            style={{ color: COLORS.textSecondary }}
+          >
             <LinkedInIcon className="h-4 w-4" />
           </a>
-          <a href="#" aria-label="Instagram" style={{ color: COLORS.textSecondary }}>
+          <a
+            href="https://www.instagram.com/revonis.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            style={{ color: COLORS.textSecondary }}
+          >
             <InstagramIcon className="h-4 w-4" />
           </a>
         </div>
@@ -32,4 +44,3 @@ export function Footer() {
     </footer>
   );
 }
-
