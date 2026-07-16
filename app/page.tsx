@@ -62,6 +62,8 @@ import {
   TestTube2,
   LifeBuoy,
 } from "lucide-react";
+import * as SiIcons from "react-icons/si";
+
 import {
   SiSpringboot,
   SiNextdotjs,
@@ -79,8 +81,80 @@ import {
   SiNodedotjs,
   SiPrisma,
   SiHibernate,
+  SiAndroid,
+  SiKotlin,
+  SiGoogleplay,
+  SiJavascript,
+  SiHtml5,
+  SiCss,
+  SiRedux,
+  SiSass,
+  SiVite,
+  SiVuedotjs,
+  SiAngular,
+  SiSvelte,
+  SiGraphql,
+  SiMui,
+  SiBootstrap,
+  SiExpress,
+  SiDjango,
+  SiFastapi,
+  SiGo,
+  SiPhp,
+  SiLaravel,
+  SiDotnet,
+  SiMysql,
+  SiMongodb,
+  SiNestjs,
+  SiRabbitmq,
+  SiRubyonrails,
+  SiKtor,
+  SiElasticsearch,
+  SiFirebase,
+  SiSupabase,
+  SiTerraform,
+  SiJenkins,
+  SiGithubactions,
+  SiGitlab,
+  SiAnsible,
+  SiNginx,
+  SiGooglecloud,
+  SiCloudflare,
+  SiHelm,
+  SiPrometheus,
+  SiGrafana,
+  SiCircleci,
+  SiVercel,
+  SiNetlify,
+  SiLinux,
+  SiPytorch,
+  SiHuggingface,
+  SiOpenaigym,
+  SiOpencv,
+  SiScikitlearn,
+  SiSpacy,
+  SiRasa,
+  SiOllama,
+  SiFlutter,
+  SiSwift,
+  SiGradle,
+  SiXml,
+  SiSemrush,
+  SiYoast,
+  SiPagespeedinsights,
+  SiSelenium,
+  SiCypress,
+  SiPostman,
+  SiJest,
+  SiAppium,
+  SiTestrail,
+  SiApachejmeter,
+  SiApache,
+  SiGoogleanalytics,
+  SiGooglesearchconsole,
+  SiSonar,
 } from "react-icons/si";
-import { FaJava, FaAws } from "react-icons/fa";
+import { FaJava, FaAws, FaAndroid, FaGoogle, FaSearch, FaBug, FaCheckCircle } from "react-icons/fa";
 import { TbBrandAzure } from "react-icons/tb";
 
 /* -------------------------------------------------------------------------- */
@@ -267,6 +341,18 @@ const TECH_CATEGORIES: TechCategory[] = [
       { name: "React", icon: SiReact, color: "#61DAFB" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38BDF8" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "CSS3", icon: SiCss, color: "#1572B6" },
+      { name: "Redux", icon: SiRedux, color: "#764ABC" },
+      { name: "Sass", icon: SiSass, color: "#CC6699" },
+      { name: "Vite", icon: SiVite, color: "#646CFF" },
+      { name: "Vue.js", icon: SiVuedotjs, color: "#42B883" },
+      { name: "Angular", icon: SiAngular, color: "#DD0031" },
+      { name: "Svelte", icon: SiSvelte, color: "#FF3E00" },
+      { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
+      { name: "Material UI", icon: SiMui, color: "#0081CB" },
+      { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
     ],
   },
   {
@@ -277,6 +363,20 @@ const TECH_CATEGORIES: TechCategory[] = [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Hibernate", icon: SiHibernate, color: "#9FB4BA" },
       { name: "JSP", icon: Code2, color: "#F89820" },
+      { name: "Express.js", icon: SiExpress, color: "#000000" },
+      { name: "Django", icon: SiDjango, color: "#092E20" },
+      { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+      { name: "Go", icon: SiGo, color: "#00ADD8" },
+      { name: "PHP", icon: SiPhp, color: "#777BB4" },
+      { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
+      { name: ".NET", icon: SiDotnet, color: "#512BD4" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
+      { name: "RabbitMQ", icon: SiRabbitmq, color: "#FF6600" },
+      { name: "Ruby on Rails", icon: SiRubyonrails, color: "#CC0000" },
+      { name: "Ktor", icon: SiKtor, color: "#7F52FF" },
+      { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
     ],
   },
   {
@@ -286,6 +386,12 @@ const TECH_CATEGORIES: TechCategory[] = [
       { name: "Redis", icon: SiRedis, color: "#DC382D" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
       { name: "Prisma", icon: SiPrisma, color: "#A78BFA" },
+      { name: "Elasticsearch", icon: SiElasticsearch, color: "#FED10A" },
+      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+      { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+      { name: "DynamoDB", icon: FaAws, color: "#FF9900" },
+      { name: "gRPC", icon: SiGraphql, color: "#E10098" },
+      { name: "SQL Server", icon: SiDotnet, color: "#512BD4" },
     ],
   },
   {
@@ -295,6 +401,21 @@ const TECH_CATEGORIES: TechCategory[] = [
       { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
       { name: "Azure", icon: TbBrandAzure, color: "#0089D6" },
       { name: "AWS", icon: FaAws, color: "#FF9900" },
+      { name: "Terraform", icon: SiTerraform, color: "#7B42BC" },
+      { name: "Jenkins", icon: SiJenkins, color: "#D33833" },
+      { name: "GitHub Actions", icon: SiGithubactions, color: "#2088FF" },
+      { name: "GitLab", icon: SiGitlab, color: "#FC6D26" },
+      { name: "Ansible", icon: SiAnsible, color: "#EE0000" },
+      { name: "Nginx", icon: SiNginx, color: "#009639" },
+      { name: "Google Cloud", icon: SiGooglecloud, color: "#4285F4" },
+      { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
+      { name: "Helm", icon: SiHelm, color: "#0F1689" },
+      { name: "Prometheus", icon: SiPrometheus, color: "#E6522C" },
+      { name: "Grafana", icon: SiGrafana, color: "#F46800" },
+      { name: "CircleCI", icon: SiCircleci, color: "#343434" },
+      { name: "Vercel", icon: SiVercel, color: "#000000" },
+      { name: "Netlify", icon: SiNetlify, color: "#00C7B7" },
+      { name: "Linux", icon: SiIcons.SiLinux, color: "#FCC624" },
     ],
   },
   {
@@ -303,6 +424,58 @@ const TECH_CATEGORIES: TechCategory[] = [
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "LangChain", icon: SiLangchain, color: "#4DB6AC" },
       { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
+      { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+      { name: "Hugging Face", icon: SiHuggingface, color: "#FFD21E" },
+      { name: "OpenAI", icon: SiOpenaigym, color: "#412991" },
+      { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
+      { name: "Scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
+      { name: "spaCy", icon: SiSpacy, color: "#09A0D9" },
+      { name: "Rasa", icon: SiRasa, color: "#563ACC" },
+      { name: "Ollama", icon: SiOllama, color: "#FFFFFF" },
+    ],
+  },
+  {
+    label: "Android App Development",
+    items: [
+      { name: "Android", icon: FaAndroid, color: "#3DDC84" },
+      { name: "Kotlin", icon: SiKotlin, color: "#7F52FF" },
+      { name: "Google Play", icon: SiGoogleplay, color: "#00B4FF" },
+      { name: "Google", icon: FaGoogle, color: "#4285F4" },
+      { name: "Flutter", icon: SiFlutter, color: "#02569B" },
+      { name: "React Native", icon: SiReact, color: "#61DAFB" },
+      { name: "Swift", icon: SiSwift, color: "#F05138" },
+      { name: "Gradle", icon: SiGradle, color: "#02303A" },
+      { name: "XML Layouts", icon: SiXml, color: "#FF6600" },
+    ],
+  },
+  {
+    label: "SEO",
+    items: [
+      { name: "Search Optimization", icon: FaSearch, color: "#1E3A8A" },
+      { name: "Keyword Research", icon: SiNextdotjs, color: "#111827" },
+      { name: "Technical SEO", icon: SiTypescript, color: "#3178C6" },
+      { name: "SEMrush", icon: SiSemrush, color: "#FF6421" },
+      { name: "Yoast SEO", icon: SiYoast, color: "#A428B9" },
+      { name: "PageSpeed Insights", icon: SiPagespeedinsights, color: "#4285F4" },
+      { name: "Google Search Console", icon: SiGooglesearchconsole, color: "#4285F4" },
+      { name: "Google Analytics", icon: SiGoogleanalytics, color: "#E37400" },
+    ],
+  },
+  {
+    label: "QA",
+    items: [
+      { name: "Manual Testing", icon: FaBug, color: "#DC2626" },
+      { name: "Automation Testing", icon: SiPython, color: "#3776AB" },
+      { name: "Quality Checks", icon: FaCheckCircle, color: "#16A34A" },
+      { name: "Bug Tracking", icon: FaBug, color: "#F59E0B" },
+      { name: "Selenium", icon: SiSelenium, color: "#43B02A" },
+      { name: "Cypress", icon: SiCypress, color: "#17202C" },
+      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
+      { name: "Jest", icon: SiJest, color: "#C21325" },
+      { name: "Appium", icon: SiAppium, color: "#0089BD" },
+      { name: "TestRail", icon: SiTestrail, color: "#6C2BD9" },
+      { name: "JMeter", icon: SiApachejmeter, color: "#D22128" },
+      { name: "SonarQube", icon: SiSonar, color: "#4E9BCD" },
     ],
   },
 ];
@@ -458,14 +631,16 @@ export function Navbar() {
         animate={{ paddingTop: scrolled ? 12 : 16, paddingBottom: scrolled ? 12 : 16 }}
         transition={{ duration: 0.35, ease: easeOut }}
       >
-        <span
-          className="text-sm font-semibold tracking-[0.25em]"
-          style={{ color: "#ffffff" }}
-        >
-          REVONIS
+        <span className="flex items-center gap-2.5">
+          <img
+            src="/Revonis_Logo%20(Edited).png"
+            alt="Revonis"
+            className="h-9 w-auto rounded-lg object-contain"
+            style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.25))" }}
+          />
         </span>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -477,14 +652,6 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-
-        <a
-          href="/#contact"
-          className="rounded-full px-5 py-2.5 text-[13px] font-semibold transition-transform hover:scale-[1.03]"
-          style={{ background: COLORS.accentGold, color: "#111827" }}
-        >
-          Book a Discovery Call
-        </a>
       </motion.div>
     </motion.header>
   );
@@ -576,16 +743,18 @@ function EngineeringSculpture() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.9, delay: 0.7, ease: easeOut }}
       >
-        <svg viewBox="0 0 120 120" className="h-[22%] w-[22%]" style={{ filter: "drop-shadow(0 0 18px rgba(212,175,55,0.45))" }}>
+        <svg viewBox="0 0 120 120" className="h-[68%] w-[68%]" style={{ filter: "drop-shadow(0 0 20px rgba(212,175,55,0.5))" }}>
           <defs>
             <linearGradient id="logoRing" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#F4E7B1" />
               <stop offset="100%" stopColor="#D4AF37" />
             </linearGradient>
           </defs>
-          <circle cx="60" cy="60" r="56" fill={COLORS.bgPrimary} stroke="url(#logoRing)" strokeWidth="2" />
-          <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(212,175,55,0.25)" strokeWidth="1" />
-        <image href="/logo(1).svg" x="30" y="30" width="60" height="60" />
+          <circle cx="60" cy="60" r="56" fill="#FFFFFF" stroke="url(#logoRing)" strokeWidth="2" />
+          <clipPath id="logoClip">
+            <circle cx="60" cy="60" r="56" />
+          </clipPath>
+          <image href="/R_Logo%20.png" x="28" y="28" width="64" height="64" clipPath="url(#logoClip)" />
         </svg>
       </motion.div>
     </motion.div>
@@ -1355,8 +1524,13 @@ export function Footer() {
   return (
     <footer className="border-t px-6 py-12" style={{ borderColor: COLORS.border }}>
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 sm:flex-row">
-        <span className="text-sm font-semibold tracking-[0.25em]" style={{ color: COLORS.textPrimary }}>
-          REVONIS
+        <span className="flex items-center gap-2.5">
+          <img
+            src="/Revonis_Logo%20(Edited).png"
+            alt="Revonis"
+            className="h-9 w-auto rounded-lg object-contain"
+            style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.15))" }}
+          />
         </span>
         <div className="flex items-center gap-6">
           <a href="mailto:hello@revonis.com" aria-label="Email" style={{ color: COLORS.textSecondary }}>
