@@ -131,7 +131,7 @@ export const COLORS = {
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/#why" },
   { label: "Contact", href: "/contact" },
 ];

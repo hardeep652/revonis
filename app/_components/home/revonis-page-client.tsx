@@ -11,7 +11,6 @@ import { Hero } from "./hero";
 import { Navbar } from "./navbar";
 import { Process } from "./process";
 import { ScrollCtx } from "./scroll-context";
-import { Services } from "./services";
 import { StatsBar } from "./stats-bar";
 import { TechStack } from "./tech-stack";
 import { Testimonials } from "./testimonials";
@@ -35,7 +34,6 @@ export default function RevonisPage() {
         <main>
           <Hero />
           <StatsBar />
-          <Services />
           <Process />
           <WhyRevonis />
           <ClientExperience />

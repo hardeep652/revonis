@@ -4,7 +4,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Testimonials() {
   return (
-    <section className="relative px-6 py-28" style={{ background: COLORS.bgSecondary }}>
+    <section className="relative px-6 py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="TESTIMONIALS" title="What clients say." />
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

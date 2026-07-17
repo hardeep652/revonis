@@ -4,7 +4,7 @@ import { SectionHeading } from "./section-heading";
 
 export function WhyRevonis() {
   return (
-    <section id="why" className="relative px-6 py-28" style={{ background: COLORS.bgSecondary }}>
+    <section id="why" className="relative px-6 py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="WHY WORK WITH US" title="We keep things straightforward." />
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

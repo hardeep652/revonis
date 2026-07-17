@@ -47,7 +47,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
 export function Services() {
   return (
-    <section id="services" className="relative px-6 py-28" style={{ background: COLORS.bgSecondary }}>
+    <section id="services" className="relative px-6 py-28" style={{ background: "transparent" }}>
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="SERVICES"
