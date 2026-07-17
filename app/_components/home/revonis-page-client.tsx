@@ -16,6 +16,7 @@ import { TechStack } from "./tech-stack";
 import { Testimonials } from "./testimonials";
 import { COLORS } from "./home-data";
 import { WhyRevonis } from "./why-revonis";
+import { About } from "./about";
 
 export default function RevonisPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +36,7 @@ export default function RevonisPage() {
           <Hero />
           <StatsBar />
           <Process />
-          <WhyRevonis />
+          <About />
           <ClientExperience />
           <TechStack />
           <Testimonials />

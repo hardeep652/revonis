@@ -7,5 +7,6 @@ export { FeaturedProjects } from "./_components/home/featured-projects";
 export { Footer } from "./_components/home/footer";
 export { Navbar } from "./_components/home/navbar";
 export { ScrollCtx } from "./_components/home/scroll-context";
+export { About } from "./_components/home/about";
 
 export default RevonisPage;
