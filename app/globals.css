@@ -31,9 +31,11 @@ body {
   0% {
     background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
   }
+
   50% {
     background-position: 60% 40%, 40% 60%, 30% 70%, 70% 30%;
   }
+
   100% {
     background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
   }
@@ -55,6 +57,7 @@ body {
   0% {
     transform: translateX(-40%) rotate(8deg);
   }
+
   100% {
     transform: translateX(140%) rotate(8deg);
   }
@@ -66,14 +69,11 @@ body {
   left: 0;
   width: 45%;
   height: 140%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(212, 175, 55, 0.06),
-    rgba(30, 58, 138, 0.05),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(212, 175, 55, 0.06),
+      rgba(30, 58, 138, 0.05),
+      transparent);
   filter: blur(36px);
   animation: ambient-sheen 16s ease-in-out infinite;
 }
-
