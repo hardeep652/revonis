@@ -27,7 +27,7 @@ function TicketTape() {
   const items = [...WORK_TYPES, ...WORK_TYPES, ...WORK_TYPES]; // triple for smoother loop
 
   return (
-    <div className="relative h-[420px] w-full overflow-hidden rounded-3xl border border-white/5">
+    <div className="relative h-[420px] w-full max-w-[450px] overflow-hidden rounded-3xl border border-white/5">
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F1B3D] via-[#0A1429] to-[#0F1B3D]" />
 
