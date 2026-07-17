@@ -200,7 +200,7 @@ export default function ContactPage() {
 
                 <a
                   href="mailto:hello@revonis.com?subject=Discovery%20Call"
-                  className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-transform hover:scale-[1.03]"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-transform hover:scale-[1.03] sm:w-auto sm:inline-flex"
                   style={{ background: COLORS.accentGold, color: "#0A0E1F" }}
                 >
                   Book a Discovery Call

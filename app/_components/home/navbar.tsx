@@ -1,13 +1,33 @@
 "use client";
 
 import { useContext, useState } from "react";
-import { motion, easeOut } from "framer-motion";
+import { motion, easeOut, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "./home-data";
 import { ScrollCtx } from "./scroll-context";
+
+function Hamburger({ open }: { open: boolean }) {
+  return (
+    <div className="flex h-5 w-5 flex-col items-center justify-center gap-[5px]">
+      <span
+        className="h-[2px] w-5 rounded-full bg-white transition-transform duration-300"
+        style={{ transform: open ? "translateY(7px) rotate(45deg)" : "none" }}
+      />
+      <span
+        className="h-[2px] w-5 rounded-full bg-white transition-opacity duration-300"
+        style={{ opacity: open ? 0 : 1 }}
+      />
+      <span
+        className="h-[2px] w-5 rounded-full bg-white transition-transform duration-300"
+        style={{ transform: open ? "translateY(-7px) rotate(-45deg)" : "none" }}
+      />
+    </div>
+  );
+}
 
 export function Navbar() {
   const { scrolled } = useContext(ScrollCtx);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <motion.header
@@ -63,7 +83,47 @@ export function Navbar() {
             </a>
           ))}
         </nav>
+
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          className="flex h-9 w-9 items-center justify-center rounded-full md:hidden"
+          style={{ background: "rgba(255,255,255,0.08)" }}
+        >
+          <Hamburger open={menuOpen} />
+        </button>
       </motion.div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: easeOut }}
+            className="mt-3 overflow-hidden rounded-3xl border px-4 py-3 md:hidden"
+            style={{
+              borderColor: "rgba(255, 255, 255, 0.18)",
+              background: "rgba(30, 58, 138, 0.85)",
+              backdropFilter: "blur(16px)",
+            }}
+          >
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="block rounded-2xl px-4 py-3 text-sm font-medium text-white/90 transition-colors"
+                style={{ minHeight: 44 }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
-  )
+  );
 }

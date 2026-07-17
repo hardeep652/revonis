@@ -14,8 +14,13 @@ export function Footer() {
             style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.15))" }}
           />
         </span>
-        <div className="flex items-center gap-6">
-          <a href="mailto:hello@revonis.com" aria-label="Email" style={{ color: COLORS.textSecondary }}>
+        <div className="flex items-center gap-2">
+          <a
+            href="mailto:hello@revonis.com"
+            aria-label="Email"
+            className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/10"
+            style={{ color: COLORS.textSecondary }}
+          >
             <Mail className="h-4 w-4" />
           </a>
           <a
@@ -23,6 +28,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/10"
             style={{ color: COLORS.textSecondary }}
           >
             <LinkedInIcon className="h-4 w-4" />
@@ -32,6 +38,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
+            className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/10"
             style={{ color: COLORS.textSecondary }}
           >
             <InstagramIcon className="h-4 w-4" />

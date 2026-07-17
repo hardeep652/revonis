@@ -28,7 +28,7 @@ function TicketTape() {
 
   return (
     <div
-      className="relative h-[380px] w-full max-w-xs overflow-hidden rounded-2xl"
+      className="relative h-[380px] w-full overflow-hidden rounded-2xl"
       style={{
         background: "#0F1B3D",
         maskImage: "linear-gradient(to bottom, transparent, black 4%, black 96%, transparent)",
