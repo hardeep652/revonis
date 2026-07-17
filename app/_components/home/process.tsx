@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useTransform,
   useMotionValueEvent,
+  useInView,
 } from "framer-motion";
 import { COLORS, PROCESS_STEPS } from "./home-data";
 import { SectionHeading } from "./section-heading";
@@ -359,8 +360,14 @@ function StepVisual({ step }: { step: number }) {
 }
 
 export function Process() {
+  // Wraps BOTH columns so scroll-progress math and the sticky panel share the same boundary
   const containerRef = useRef<HTMLDivElement>(null);
+  // Watches the sticky panel specifically, so we know the moment it's actually on screen
+  const panelRef = useRef<HTMLDivElement>(null);
+
   const [activeStep, setActiveStep] = useState(0);
+  // Gate: don't play the reveal animation until the panel has actually scrolled into view
+  const [hasEntered, setHasEntered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -376,14 +383,23 @@ export function Process() {
     setActiveStep(idx);
   });
 
+  const panelInView = useInView(panelRef, { once: true, margin: "-10% 0px" });
+
+  useEffect(() => {
+    if (panelInView && !hasEntered) {
+      setHasEntered(true);
+    }
+  }, [panelInView, hasEntered]);
+
   return (
     <section id="process" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="PROCESS" title="How we work together." />
 
-        <div className="grid gap-16 lg:grid-cols-[1fr_360px]">
-          {/* Left: existing timeline, unchanged */}
-          <div ref={containerRef} className="relative">
+        {/* containerRef moved here so scroll math + sticky panel share the same boundary */}
+        <div ref={containerRef} className="grid gap-16 lg:grid-cols-[1fr_360px]">
+          {/* Left: timeline */}
+          <div className="relative">
             <div
               className="absolute left-6 top-0 hidden h-full w-px sm:block"
               style={{ background: COLORS.border }}
@@ -403,27 +419,40 @@ export function Process() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: i * 0.05 }}
-                    className="relative flex items-start gap-6 sm:pl-2"
+                    className="relative flex flex-col gap-6 sm:pl-2"
                   >
-                    <div
-                      className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border transition-colors duration-300"
-                      style={{
-                        borderColor: COLORS.accentGold,
-                        background: isActive ? COLORS.accentGold : COLORS.bgPrimary,
-                      }}
-                    >
-                      <Icon
-                        className="h-5 w-5 transition-colors duration-300"
-                        style={{ color: isActive ? COLORS.bgPrimary : COLORS.accentGold }}
-                      />
+                    <div className="flex items-start gap-6">
+                      <div
+                        className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border transition-colors duration-300"
+                        style={{
+                          borderColor: COLORS.accentGold,
+                          background: isActive ? COLORS.accentGold : COLORS.bgPrimary,
+                        }}
+                      >
+                        <Icon
+                          className="h-5 w-5 transition-colors duration-300"
+                          style={{ color: isActive ? COLORS.bgPrimary : COLORS.accentGold }}
+                        />
+                      </div>
+                      <div className="pt-2">
+                        <h3 className="text-lg font-semibold" style={{ color: COLORS.textPrimary }}>
+                          {step.title}
+                        </h3>
+                        <p className="mt-1 text-sm" style={{ color: COLORS.textSecondary }}>
+                          {step.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div className="pt-2">
-                      <h3 className="text-lg font-semibold" style={{ color: COLORS.textPrimary }}>
-                        {step.title}
-                      </h3>
-                      <p className="mt-1 text-sm" style={{ color: COLORS.textSecondary }}>
-                        {step.desc}
-                      </p>
+
+                    {/* Mobile/tablet fallback: renders the visual inline under each step,
+                        since the sticky panel is hidden below the lg breakpoint */}
+                    <div
+                      className="ml-[4.5rem] rounded-xl border p-5 lg:hidden"
+                      style={{ borderColor: COLORS.border, background: COLORS.bgSecondary }}
+                    >
+                      <div className="min-h-[140px]">
+                        <StepVisual step={i} />
+                      </div>
                     </div>
                   </motion.div>
                 );
@@ -431,8 +460,8 @@ export function Process() {
             </div>
           </div>
 
-          {/* Right: sticky panel, now shows a step-specific mini visual instead of repeating the text */}
-          <div className="hidden lg:block">
+          {/* Right: sticky panel (desktop only) */}
+          <div className="hidden lg:block" ref={panelRef}>
             <div className="sticky top-32">
               <div
                 className="rounded-2xl border p-8"
@@ -450,9 +479,13 @@ export function Process() {
                 </h3>
 
                 <div className="mt-6 min-h-[160px]">
-                  <AnimatePresence mode="wait">
-                    <StepVisual step={activeStep} />
-                  </AnimatePresence>
+                  {hasEntered ? (
+                    <AnimatePresence mode="wait">
+                      <StepVisual key={activeStep} step={activeStep} />
+                    </AnimatePresence>
+                  ) : (
+                    <div className="h-full w-full" />
+                  )}
                 </div>
               </div>
             </div>
