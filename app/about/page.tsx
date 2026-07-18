@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
-import {
-  AmbientBackground,
-  Navbar,
-  Footer,
-  ScrollCtx,
-  About,
-} from "../page";
+import { AmbientBackground } from "../_components/home/ambient-background";
+import { Navbar } from "../_components/home/navbar";
+import { Footer } from "../_components/home/footer";
+import { ScrollCtx } from "../_components/home/scroll-context";
+import { About } from "../_components/home/about";
 
 export default function AboutPage() {
   const [scrolled, setScrolled] = useState(false);

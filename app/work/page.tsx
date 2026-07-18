@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
-import {
-  AmbientBackground,
-  Navbar,
-  Footer,
-  FeaturedProjects,
-  ScrollCtx,
-} from "../page";
+import { AmbientBackground } from "../_components/home/ambient-background";
+import { Navbar } from "../_components/home/navbar";
+import { Footer } from "../_components/home/footer";
+import { FeaturedProjects } from "../_components/home/featured-projects";
+import { ScrollCtx } from "../_components/home/scroll-context";
 
 export default function WorkPage() {
   const [scrolled, setScrolled] = useState(false);

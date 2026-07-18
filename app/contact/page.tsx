@@ -3,12 +3,10 @@
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowUpRight, CheckCircle2, Send } from "lucide-react";
-import {
-  AmbientBackground,
-  Navbar,
-  Footer,
-  ScrollCtx,
-} from "../page";
+import { AmbientBackground } from "../_components/home/ambient-background";
+import { Navbar } from "../_components/home/navbar";
+import { Footer } from "../_components/home/footer";
+import { ScrollCtx } from "../_components/home/scroll-context";
 
 const COLORS = {
   bgPrimary: "#F8F9FA",

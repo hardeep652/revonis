@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
-import {
-  AmbientBackground,
-  Navbar,
-  Footer,
-  ScrollCtx,
-} from "../page";
+import { AmbientBackground } from "../_components/home/ambient-background";
+import { Navbar } from "../_components/home/navbar";
+import { Footer } from "../_components/home/footer";
+import { ScrollCtx } from "../_components/home/scroll-context";
 import { Services } from "../_components/home/services";
 
 export default function ServicesPage() {
