@@ -190,8 +190,14 @@ export default function ContactPage() {
                     <span className="block text-xs font-medium" style={{ color: COLORS.textSecondary }}>
                       Our office
                     </span>
-                    <span className="block text-sm font-semibold" style={{ color: COLORS.textPrimary }}>
-                      Your Office Address, Street, City, Gujarat, India
+                    <span className="block text-sm font-semibold leading-relaxed" style={{ color: COLORS.textPrimary }}>
+                      Block R/FF/4, Abhishek Apartments,
+                      <br />
+                      Opp. Ganesh Vidhyalaya,
+                      <br />
+                      New Wadaj Road,
+                      <br />
+                      Ahmedabad – 380013, Gujarat, India
                     </span>
                   </span>
                 </div>

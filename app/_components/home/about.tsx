@@ -15,7 +15,7 @@ import {
   Rocket,
   Quote,
 } from "lucide-react";
-import { COLORS, STATS } from "./home-data";
+import { COLORS } from "./home-data";
 import { SectionHeading } from "./section-heading";
 
 const MISSION =
@@ -171,27 +171,6 @@ export function About() {
         <div className="mb-24 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {CORE_VALUES.map((v, i) => (
             <ValueCard key={v.title} {...v} index={i} />
-          ))}
-        </div>
-
-        {/* Closing statement */}
-        <SectionHeading eyebrow="BY THE NUMBERS" title="What our work adds up to." />
-        <div className="mb-24 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {STATS.map((s, i) => (
-            <motion.div
-              key={s.label}
-              {...fadeUp(i * 0.05)}
-              className="rounded-2xl border p-6 text-center"
-              style={{ borderColor: COLORS.border, background: COLORS.card }}
-            >
-              <p className="text-3xl font-semibold tracking-tight sm:text-4xl" style={{ color: COLORS.accentBlue }}>
-                {s.value}
-                {s.suffix}
-              </p>
-              <p className="mt-2 text-xs leading-snug" style={{ color: COLORS.textSecondary }}>
-                {s.label}
-              </p>
-            </motion.div>
           ))}
         </div>
 

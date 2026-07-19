@@ -32,14 +32,14 @@ function InstagramIcon({ className, style }: { className?: string; style?: React
 
 const FOOTER_LINKS = {
   Company: [
-    { label: "Home", href: "#home" },
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
+    { label: "Home", href: "/" },
+    { label: "Work", href: "/work" },
+    { label: "About", href: "/about" },
   ],
   Services: [
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "/services" },
     { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
   ],
 };
 
@@ -217,6 +217,24 @@ export function Footer() {
                     style={{ color: COLORS.accentGold }}
                   />
                 </a>
+              </li>
+              <li
+                className="leading-relaxed"
+                style={{ color: COLORS.textSecondary }}
+              >
+                <span
+                  className="block text-xs font-semibold uppercase tracking-widest"
+                  style={{ color: COLORS.textSecondary }}
+                >
+                  Our Office
+                </span>
+                Block R/FF/4, Abhishek Apartments,
+                <br />
+                Opp. Ganesh Vidhyalaya,
+                <br />
+                New Wadaj Road,
+                <br />
+                Ahmedabad – 380013, Gujarat, India
               </li>
             </ul>
           </div>

@@ -137,8 +137,8 @@ export const NAV_LINKS = [
 ];
 
 export const STATS = [
-  { label: "Projects Delivered", value: 40, suffix: "+" },
-  { label: "Business Domains", value: 8, suffix: "" },
+  { label: "Projects Delivered", value: 4, suffix: "+" },
+  { label: "Business Domains", value: 5, suffix: "" },
   { label: "Performance Score", value: 95, suffix: "+" },
   { label: "Avg. Response Time", value: 2, suffix: "h" },
   { label: "Source Code Ownership", value: 100, suffix: "%" },
