@@ -21,14 +21,23 @@ export function Testimonials() {
               <p className="text-sm italic leading-relaxed" style={{ color: COLORS.textPrimary }}>
                 &quot;{t.quote}&quot;
               </p>
-              <div className="mt-5 border-t pt-4" style={{ borderColor: COLORS.border }}>
-                <p className="text-sm font-semibold" style={{ color: COLORS.textPrimary }}>
-                  {t.name}
-                </p>
-                <p className="text-xs" style={{ color: COLORS.textSecondary }}>
-                  {t.role}
-                </p>
-              </div>
+               <div className="mt-5 flex items-center gap-3 border-t pt-4" style={{ borderColor: COLORS.border }}>
+                 {t.logo && (
+                   <img
+                     src={t.logo}
+                     alt={`${t.name} logo`}
+                     className="h-10 w-auto rounded-md object-contain"
+                   />
+                 )}
+                 <div>
+                   <p className="text-sm font-semibold" style={{ color: COLORS.textPrimary }}>
+                     {t.name}
+                   </p>
+                   <p className="text-xs" style={{ color: COLORS.textSecondary }}>
+                     {t.role}
+                   </p>
+                 </div>
+               </div>
             </motion.div>
           ))}
         </div>

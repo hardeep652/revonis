@@ -411,6 +411,7 @@ export const TESTIMONIALS = [
       "Revonis transformed our vision into a modern, fast, and professional website. The entire process was smooth, communication was excellent, and every detail was handled with care. The final result exceeded our expectations and has significantly improved our online presence.",
     name: "Nirmaan Academy",
     role: "Educational Institute",
+    logo: "/nirmaan-logo.webp",
   },
 ];
 
