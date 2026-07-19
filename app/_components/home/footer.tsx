@@ -137,9 +137,11 @@ export function Footer() {
         {/* Brand + link columns */}
         <div className="grid grid-cols-2 gap-10 pb-16 sm:grid-cols-4">
           <div className="col-span-2">
-            <span className="text-xl font-bold" style={{ color: COLORS.textPrimary }}>
-              Revonis
-            </span>
+            <img
+              src="/revonis-logo.png"
+              alt="Revonis"
+              className="h-9 w-auto"
+            />
             <p
               className="mt-4 max-w-xs text-sm leading-relaxed"
               style={{ color: COLORS.textSecondary }}

@@ -10,6 +10,7 @@ import { Hero } from "./hero";
 import { Navbar } from "./navbar";
 import { Process } from "./process";
 import { ScrollCtx } from "./scroll-context";
+import { StatsBar } from "./stats-bar";
 import { TechStack } from "./tech-stack";
 import { Testimonials } from "./testimonials";
 import { COLORS } from "./home-data";
@@ -31,9 +32,11 @@ export default function RevonisPage() {
         <Navbar />
         <main>
           <Hero />
+          <StatsBar />
           <Process />
           <TechStack />
           <Testimonials />
+          <WhyRevonis />
           <FAQ />
           <FinalCTA />
         </main>
