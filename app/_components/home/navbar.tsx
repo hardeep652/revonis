@@ -54,8 +54,8 @@ export function Navbar() {
           <img
             src="/Revonis_Logo%20(Edited).png"
             alt="Revonis"
-            className="h-6 w-auto object-contain"
-            style={{ filter: "brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.3))" }}
+            className="h-6 w-auto rounded-lg object-contain"
+            style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.25))" }}
           />
         </motion.span>
 
