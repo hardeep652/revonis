@@ -412,6 +412,15 @@ export const TESTIMONIALS = [
     name: "Nirmaan Academy",
     role: "Educational Institute",
     logo: "/nirmaan-logo.webp",
+    url: "https://www.nirmaanacademy.in/",
+  },
+  {
+    quote:
+      "Excellent work by Revonis! They developed a modern and professional website for Ambica Travels exactly as we envisioned. The team was responsive, creative, and understood our requirements perfectly. Highly recommended!",
+    name: "Ambica Travels",
+    role: "Travel Agency",
+    logo: "https://www.ambicatravels.com/AT.png",
+    url: "https://www.ambicatravels.com/",
   },
 ];
 
