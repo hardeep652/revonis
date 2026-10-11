@@ -2,6 +2,7 @@
 
 import { useContext, useState } from "react";
 import { motion, easeOut, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { NAV_LINKS } from "./home-data";
 import { ScrollCtx } from "./scroll-context";
 
@@ -51,9 +52,12 @@ export function Navbar() {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.25, ease: easeOut }}
         >
-          <img
-            src="/Revonis_Logo%20(Edited).png"
+          <Image
+            src="/Revonis_Logo (Edited).png"
             alt="Revonis"
+            width={1254}
+            height={218}
+            sizes="120px"
             className="h-6 w-auto rounded-lg object-contain"
             style={{ filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.25))" }}
           />

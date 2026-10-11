@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { COLORS } from "./home-data";
 
@@ -38,7 +39,7 @@ const FOOTER_LINKS = {
   ],
   Services: [
     { label: "Services", href: "/services" },
-    { label: "Process", href: "#process" },
+    { label: "Process", href: "/#process" },
     { label: "Contact", href: "/contact" },
   ],
 };
@@ -137,9 +138,12 @@ export function Footer() {
         {/* Brand + link columns */}
         <div className="grid grid-cols-2 gap-10 pb-16 sm:grid-cols-4">
           <div className="col-span-2">
-            <img
+            <Image
               src="/revonis-logo.png"
               alt="Revonis"
+              width={1254}
+              height={218}
+              sizes="180px"
               className="h-9 w-auto"
             />
             <p
@@ -246,14 +250,6 @@ export function Footer() {
           style={{ borderColor: COLORS.border, color: COLORS.textSecondary }}
         >
           <span>© {year} Revonis. All rights reserved.</span>
-          <div className="flex items-center gap-6">
-            <a href="#privacy" className="transition-colors duration-300">
-              Privacy Policy
-            </a>
-            <a href="#terms" className="transition-colors duration-300">
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>

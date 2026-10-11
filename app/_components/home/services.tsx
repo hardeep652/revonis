@@ -57,6 +57,7 @@ export function Services() {
           eyebrow="SERVICES"
           title="What we actually help with."
           description="Practical solutions for the challenges most growing businesses face."
+          headingLevel="h1"
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => (

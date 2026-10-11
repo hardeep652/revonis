@@ -5,11 +5,15 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
+  headingLevel = "h2",
 }: {
   eyebrow: string;
   title: string;
   description?: string;
+  headingLevel?: "h1" | "h2";
 }) {
+  const Heading = headingLevel;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -21,9 +25,9 @@ export function SectionHeading({
       <p className="mb-4 text-[13px] font-semibold tracking-[0.25em]" style={{ color: COLORS.accentGold }}>
         {eyebrow}
       </p>
-      <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl" style={{ color: COLORS.textPrimary }}>
+      <Heading className="text-4xl font-semibold tracking-tight sm:text-5xl" style={{ color: COLORS.textPrimary }}>
         {title}
-      </h2>
+      </Heading>
       {description && (
         <p className="mt-5 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
           {description}

@@ -1,4 +1,5 @@
 import { motion, easeOut } from "framer-motion";
+import Image from "next/image";
 import { COLORS, PROJECTS, type Project } from "./home-data";
 import { SectionHeading } from "./section-heading";
 
@@ -16,9 +17,12 @@ function ProjectMock({ project }: { project: Project }) {
       </div>
       {project.image ? (
         <div className="w-full">
-          <img
+          <Image
             src={project.image}
             alt={`${project.name} preview`}
+            width={1536}
+            height={1024}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-auto object-contain"
           />
         </div>
@@ -116,7 +120,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-export function FeaturedProjects() {
+export function FeaturedProjects({ pageHeading = false }: { pageHeading?: boolean }) {
   return (
     <section id="work" className="relative px-6 py-28">
       <div className="mx-auto max-w-7xl">
@@ -124,6 +128,7 @@ export function FeaturedProjects() {
           eyebrow="SELECTED WORK"
           title="Real businesses. Real outcomes."
           description="We focus on solving the problems that actually hold growth back."
+          headingLevel={pageHeading ? "h1" : "h2"}
         />
         <div className="space-y-8">
           {PROJECTS.map((project, i) => (

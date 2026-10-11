@@ -22,7 +22,7 @@ export default function WorkPage() {
         <AmbientBackground />
         <Navbar />
         <main>
-          <FeaturedProjects />
+          <FeaturedProjects pageHeading />
         </main>
         <Footer />
       </div>

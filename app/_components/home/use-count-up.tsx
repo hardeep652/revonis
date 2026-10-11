@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function useCountUp(target: number, durationMs = 1600) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const started = useRef(false);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ export function useCountUp(target: number, durationMs = 1600) {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !started.current) {
             started.current = true;
+            setValue(0);
             const start = performance.now();
             const tick = (now: number) => {
               const progress = Math.min((now - start) / durationMs, 1);

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 import { COLORS, TESTIMONIALS } from "./home-data";
 import { SectionHeading } from "./section-heading";
 
@@ -43,9 +44,13 @@ export function Testimonials() {
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border bg-white p-1 shadow-xs transition-transform hover:scale-105"
                     style={{ borderColor: COLORS.border }}
                   >
-                    <img
+                    <Image
                       src={t.logo}
                       alt={`${t.name} logo`}
+                      width={240}
+                      height={240}
+                      sizes="40px"
+                      unoptimized={!t.logo.startsWith("/")}
                       className="h-full w-full object-contain"
                     />
                   </a>

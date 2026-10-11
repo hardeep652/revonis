@@ -119,6 +119,7 @@ export function About() {
           eyebrow="ABOUT REVONIS"
           title="Software that fits how you actually work."
           description="Revonis is a software studio for growing teams — we build the websites, tools, and automations that turn daily friction into quiet momentum."
+          headingLevel="h1"
         />
 
         {/* Company story */}
