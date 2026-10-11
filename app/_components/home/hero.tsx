@@ -126,9 +126,9 @@ export function Hero() {
             className="mt-5 max-w-md text-base leading-relaxed sm:text-lg"
             style={{ color: COLORS.textSecondary }}
           >
-            A clunky spreadsheet. A manual step that eats an hour every
-            week. A website that's been "almost done" for a year. Small
-            team, no backlog — we can actually start on it soon.
+            From business websites and internal tools to workflow automation,
+            we build practical software that helps your team spend less time
+            on manual work and more time growing.
           </motion.p>
 
           <motion.div
