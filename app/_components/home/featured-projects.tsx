@@ -19,7 +19,7 @@ function ProjectMock({ project }: { project: Project }) {
         <div className="w-full">
           <Image
             src={project.image}
-            alt={`${project.name} preview`}
+            alt={`${project.name} website design and branding`}
             width={1536}
             height={1024}
             sizes="(max-width: 1024px) 100vw, 50vw"
